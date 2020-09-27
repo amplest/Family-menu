@@ -1,6 +1,6 @@
 <template>
   <view>
-    首页
+    菜单
     <tabbar></tabbar>
   </view>
 </template>
@@ -18,7 +18,6 @@ export default {
   methods: {},
 };
 </script>
-
 
 <style lang="less">
 </style>
