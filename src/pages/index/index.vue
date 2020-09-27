@@ -4,6 +4,9 @@
 		<view>
 			<text class="title">{{title}}</text>
 		</view>
+		<van-button color="#7232dd">单色按钮</van-button>
+		<van-button color="#7232dd" plain>单色按钮</van-button>
+		<van-button color="linear-gradient(to right, #4bb0ff, #6149f6)">渐变色按钮</van-button>
 	</view>
 </template>
 
@@ -11,7 +14,8 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				 active: 'home',
 			}
 		},
 		onLoad() {

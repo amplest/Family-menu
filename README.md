@@ -16,6 +16,10 @@
 npm install -g @vue/cli
 # 创建uniapp项目
 vue create -p dcloudio/uni-preset-vue my-project
+# 安装vant
+npm init
+npm install --production
+npm i vant-weapp -S --production
 # 运行
 npm run dev:mp-weixin
 # 发布
