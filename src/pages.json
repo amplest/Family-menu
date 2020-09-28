@@ -28,6 +28,15 @@
 				"navigationBarBackgroundColor": "#fcd133",
 				"usingComponents": {}
 			}
+		},
+		{
+			"path": "pages/user/edit/index",
+			"style": {
+				"navigationBarTitleText": "资料编辑",
+				"usingComponents": {
+					"van-field": "wxcomponents/vant/field/index"
+				}
+			}
 		}
 	],
 	"globalStyle": {
