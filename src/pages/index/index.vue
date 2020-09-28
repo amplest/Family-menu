@@ -1,24 +1,18 @@
 <template>
   <view>
     首页
-    <tabbar></tabbar>
   </view>
 </template>
 
 <script>
-import Tabbar from "@/components/Tabbar/index";
 export default {
   data() {
     return {};
   },
-  components: {
-    Tabbar,
-  },
+  components: {},
   onLoad() {},
   methods: {},
 };
 </script>
 
-
-<style lang="less">
-</style>
+<style lang="less"></style>

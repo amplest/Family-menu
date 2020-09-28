@@ -1,27 +1,26 @@
 <template>
   <view>
-    <van-tabbar
-      :active="tabbarActive"
-      active-color="#07c160"
-      inactive-color="#000"
-      :change="onChange"
-    >
+    <van-tabbar :active="tabbarActive">
       <van-tabbar-item
-        name="home"
-        icon="home-o"
-      >首页</van-tabbar-item>
-      <van-tabbar-item
-        name="task"
-        icon="balance-list-o"
-      >任务</van-tabbar-item>
-      <van-tabbar-item
-        name="menu"
-        icon="records"
-      >菜谱</van-tabbar-item>
-      <van-tabbar-item
-        name="personal"
-        icon="smile-o"
-      >我的</van-tabbar-item>
+        v-for="(item, index) in tabbarList"
+        :key="index"
+        :dot="item.dot_status"
+        @click="handleTabbar(item)"
+      >
+        <image
+          slot="icon"
+          :src="item.icon"
+          mode="aspectFit"
+          style="width: 60upx; height: 60upx;"
+        />
+        <image
+          slot="icon-active"
+          :src="item.icon_active"
+          mode="aspectFit"
+          style="width: 60upx; height: 60upx;"
+        />
+        {{ item.name }}
+      </van-tabbar-item>
     </van-tabbar>
   </view>
 </template>
@@ -29,24 +28,59 @@
 <script>
 import VanTabbar from "@/wxcomponents/vant/tabbar/index";
 import VanTabbarItem from "@/wxcomponents/vant/tabbar-item/index";
+
 export default {
+  data() {
+    return {
+      task_status: true,
+      menu_status: true,
+      tabbarActive: 0,
+      tabbarList: [
+        {
+          name: "首页",
+          icon: "../../static/tabbar/home.png",
+          icon_active: "../../static/tabbar/home.png",
+          url: "/pages/index/index",
+          dot_status: false,
+        },
+        {
+          name: "任务",
+          icon: "../../static/tabbar/task.png",
+          icon_active: "../../static/tabbar/task.png",
+          url: "/pages/task/index",
+          dot_status: true,
+        },
+        {
+          name: "菜单",
+          icon: "../../static/tabbar/menu.png",
+          icon_active: "../../static/tabbar/menu.png",
+          url: "/pages/menu/index",
+          dot_status: true,
+        },
+        {
+          name: "我的",
+          icon: "../../static/tabbar/me.png",
+          icon_active: "../../static/tabbar/me.png",
+          url: "/pages/personal-center/index",
+          dot_status: false,
+        },
+      ],
+    };
+  },
   components: {
     VanTabbar,
     VanTabbarItem,
   },
-  data() {
-    return {
-      tabbarActive: "home",
-    };
-  },
-  onChange(event) {
-    console.log(event);
-    this.setData({ tabbarActive: event.detail });
-  },
   onLoad() {},
-  methods: {},
+  methods: {
+    handleTabbar(item) {
+      console.log(item.url);
+      uni.navigateTo({
+        url: item.url
+      });
+    },
+  },
 };
 </script>
 
-<style lang="less">
-</style>
+<style lang="less"></style>
